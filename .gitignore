@@ -1,0 +1,26 @@
+# virtualenv
+*.swp
+*.swn
+*~
+ENV/
+/bin/
+/lib/
+/include/
+/local
+
+# pip
+/pip-log.txt
+/build/
+
+# django
+*.db
+/media/
+#/static/
+which.py
+local.py
+
+# python
+*.pyc
+
+# jenkins
+/reports/
