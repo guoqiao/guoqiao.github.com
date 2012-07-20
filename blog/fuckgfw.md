@@ -19,7 +19,7 @@ how to skip password while climbing GFW in linux
 现在密码可以作为参数嵌入在命令中了, 那么就可以将命令写入脚本, 随时调用.
 我创建了如下的脚本, 取名为 fuckgfw:
 
-    plink -ssh -C -D 1080 -pw 2d892600 spig@haoluobo.com &
+    plink -ssh -C -D PORT -pw PASSWORD user@example.com &
 
 最后的&是为了让进程后台化.
 

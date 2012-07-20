@@ -53,7 +53,7 @@
     Last login: Fri Jun  1 00:02:55 2012 from 122.224.76.38</p>
 <p>现在密码可以作为参数嵌入在命令中了, 那么就可以将命令写入脚本, 随时调用.
 我创建了如下的脚本, 取名为 fuckgfw:</p>
-<pre><code>plink -ssh -C -D 1080 -pw 2d892600 spig@haoluobo.com &amp;
+<pre><code>plink -ssh -C -D PORT -pw PASSWORD user@example.com &amp;
 </code></pre>
 <p>最后的&amp;是为了让进程后台化.</p>
 <p>给这个文件增加可执行权限:
