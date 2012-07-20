@@ -33,33 +33,34 @@
         
             <div>
                 
-    <h2>Archives</h2>
+    <h2>how to skip password while climbing GFW in linux
+</h2>
+    <p>2012-07-20</p>
 
             </div>
 
             <div>
                 
-    
-        <h3>2012</h3>
-        <ul class="year_block">
-            
-            <li>
-                <h4>7</h4>
-                <ul class="month_block">
-                    
-                        
-                            <li><a href="/2012/07/20/vim-basic.html">vim basic commands
-</a> -- <small>2012-07-20</small></li>
-                        
-                            <li><a href="/2012/07/20/fuckgfw.html">how to skip password while climbing GFW in linux
-</a> -- <small>2012-07-20</small></li>
-                        
-                    
-                </ul>
-            </li>
-            
-        </ul>
-    
+    <p>首先安装 putty-tools, 其中包含了plink
+    sudo apt-get install putty-tools</p>
+<p>接着设置好浏览器的SOCKS代理:
+    127.0.0.1, 1080</p>
+<p>然后用下面的命令试验下:
+    plink -ssh -C -D PORT -pw PASSWORD USER@yoursite.com</p>
+<p>如果是第一次连接, 会要求你确认远程主机的指纹. 输入y即可.</p>
+<p>连接成功后, 应该会打印如下内容:
+    Using username "spig".
+    Last login: Fri Jun  1 00:02:55 2012 from 122.224.76.38</p>
+<p>现在密码可以作为参数嵌入在命令中了, 那么就可以将命令写入脚本, 随时调用.
+我创建了如下的脚本, 取名为 fuckgfw:</p>
+<pre><code>plink -ssh -C -D 1080 -pw 2d892600 spig@haoluobo.com &amp;
+</code></pre>
+<p>最后的&amp;是为了让进程后台化.</p>
+<p>给这个文件增加可执行权限:
+    chmod a+x fuckgfw</p>
+<p>然后放在某个系统目录下:
+    sudo cp fuckgfw /bin</p>
+<p>以后如果要翻墙, 只需要在任意控制台敲  fuckgfw 就OK了.</p>
 
             </div>
 
