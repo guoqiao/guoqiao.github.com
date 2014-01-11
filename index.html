@@ -78,18 +78,9 @@
 &lt;/li&gt;
 </code></pre>
 <p>也可以通过 js 初始化参数指定:</p>
-<pre><code>$('.pop-over').popover({data-trigger: 'hover'});
+<pre><code>$('.pop-over').popover({trigger: 'hover'});
 </code></pre>
 <p>data-trigger 可选项包括: click | hover | focus | manual</p>
-<h2>关闭方式</h2>
-<p>当 data-trigger="click" 时, 关闭 popover 的方法是再次 click. 这很自然.
-但是, 当触发方式是 hover 时, 关闭方式依然是 click. 这时就有点...不一致. 试想:用户可能无意中将鼠标悬停在某个卡片上, 这时他发现弹出了 popover. 很自然的, 他可能没有意识到要点击关闭它. 当他 立即好奇的移开鼠标到别的卡片上, 前一个 popover 仍然显示在那里. 如果他用鼠标依次移过一系列卡片, 页面上玲琅满目的 popover 就很壮观了:0</p>
-<p>很显然, 此时应该是鼠标离开卡片就自动关闭 popover 才比较合理, 很遗憾 bootstrap 没有自动给你做这件事.
-你可以用下面的代码实现:</p>
-<pre><code>$('.pop-over').on('mouseleave', function(){
-    $(this).popover('hide');
-});
-</code></pre>
 <h2>弹出位置</h2>
 <p>popover  通过 placement 参数来指定弹出的位置, 可选项为: top | bottom | left | right, 默认right.
 当 popover 作用在最右侧的元素上时, 弹出界面就有点尴尬: 会很窄, 因为右侧没有空间了, 只能往下挤成一长条.

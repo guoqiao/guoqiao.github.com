@@ -46,20 +46,9 @@ popover 默认的触发方式是 click. 有时候, 你希望改变触发方式, 
 
 也可以通过 js 初始化参数指定:
 
-    $('.pop-over').popover({data-trigger: 'hover'});
+    $('.pop-over').popover({trigger: 'hover'});
 
 data-trigger 可选项包括: click | hover | focus | manual
-
-## 关闭方式
-当 data-trigger="click" 时, 关闭 popover 的方法是再次 click. 这很自然.
-但是, 当触发方式是 hover 时, 关闭方式依然是 click. 这时就有点...不一致. 试想:用户可能无意中将鼠标悬停在某个卡片上, 这时他发现弹出了 popover. 很自然的, 他可能没有意识到要点击关闭它. 当他 立即好奇的移开鼠标到别的卡片上, 前一个 popover 仍然显示在那里. 如果他用鼠标依次移过一系列卡片, 页面上玲琅满目的 popover 就很壮观了:0
-
-很显然, 此时应该是鼠标离开卡片就自动关闭 popover 才比较合理, 很遗憾 bootstrap 没有自动给你做这件事.
-你可以用下面的代码实现:
-
-    $('.pop-over').on('mouseleave', function(){
-        $(this).popover('hide');
-    });
 
 ## 弹出位置
 popover  通过 placement 参数来指定弹出的位置, 可选项为: top | bottom | left | right, 默认right.
