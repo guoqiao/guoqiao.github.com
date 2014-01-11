@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Hello, GitHub! by guoqiao</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/stylesheets/ie.css">
+    <![endif]-->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+</head>
+<body>
+    <div id="header">
+        <nav>
+          <li class="fork"><a href="/index.html">Home</a></li>
+          <li class="fork"><a href="/archives.html">Archives</a></li>
+          <li class="fork"><a href="https://github.com/guoqiao">Fork me on GitHub</a></li>
+        </nav>
+    </div>
+
+    <div class="wrapper">
+<section>
+        
+            <div>
+                
+    <h2>vim basic commands
+</h2>
+    <p>2012-07-20</p>
+
+            </div>
+
+            <div>
+                
+    <h2>基本移动,取代方向键</h2>
+<ul>
+<li>H: 左</li>
+<li>J: 下</li>
+<li>K: 右</li>
+<li>L: 上</li>
+</ul>
+<h2>基本行内移动</h2>
+<ul>
+<li>^: 行首(首个非空字符, 同正则表达式)</li>
+<li>$: 行尾(最后一个非空字符, 同正则表达式)</li>
+<li>0: 行首,0位置</li>
+</ul>
+<h2>按单词移动</h2>
+<ul>
+<li>w: word, 移动到下一个单词开始处</li>
+<li>e: end, 移动到当前单词结尾处</li>
+<li>b: backward, 移动到前一个单词开始处</li>
+</ul>
+<h2>页面内移动</h2>
+<ul>
+<li>H: High, 光标移动到当前内容的顶部</li>
+<li>M: Middle, 光标移动到当前内容的中部</li>
+<li>L: Low, 光标移动到当前内容的底部</li>
+</ul>
+<h2>根据光标位置移动内容</h2>
+<ul>
+<li>zz: 将光标所在行置于窗体中部</li>
+<li>zt: top,将光标所在行置于窗体顶部</li>
+<li>zb: bottom,将光标所在行置于窗体底部</li>
+</ul>
+<h2>文件内移动</h2>
+<ul>
+<li>gg: 第一行</li>
+<li>G: 最后一行</li>
+<li>:<n>: 第n行</li>
+</ul>
+<h2>段落移动</h2>
+<ul>
+<li>{: 移动到段落前一行</li>
+<li>}: 移动到段落后一行
+这在复制整个函数或段落时很有用: <code>{y}</code>
+上述命令会先移动到段落开始处,然后复制,直到段落结束处.</li>
+</ul>
+<h2>进入插入模式</h2>
+<ul>
+<li>i: insert before cusor,光标前插入</li>
+<li>I: 行首插入</li>
+<li>a: append,光标后插入</li>
+<li>A: 行尾插入</li>
+<li>o: open new line, 在本行后插入新行</li>
+<li>O: 在本行前插入新行</li>
+</ul>
+<h2>移动到当前行的某个字符</h2>
+<ul>
+<li>f<x>: find x, 向后找到第一个字母x</li>
+<li>F<x>: Find x backward, 向前找到第一个字母x</li>
+</ul>
+<h2>查找光标所在单词(按n到下一个,N到前一个)</h2>
+<ul>
+<li>*: 开始向后查找光标所在单词</li>
+<li>#: 开始向前查找光标所在单词</li>
+</ul>
+<h2>查找字符串(按n到下一个,N到前一个)</h2>
+<ul>
+<li>/<str>: 向后查找</li>
+<li>?<str>: 向前查找</li>
+</ul>
+<h2>函数定义</h2>
+<ul>
+<li>[[: 下一个函数定义</li>
+<li>]]: 上一个</li>
+</ul>
+<h2>查找并替换</h2>
+<pre><code>:[range]s/&lt;pattern&gt;/&lt;str&gt;/[args] [count]
+</code></pre>
+<p>range 的取值可以是：</p>
+<ul>
+<li>空, 表示仅替换当前行</li>
+<li>%， 整个文件</li>
+<li>数字N，表示第N行</li>
+<li>范围 N1,N2, 表示在N1行和N2行之间替换</li>
+</ul>
+<p>args的取值可以是下列之一或者组合：</p>
+<ul>
+<li>空，仅替换该行第一个</li>
+<li>g，替换该行全部</li>
+<li>i，忽略大小写</li>
+<li>I， 不忽略大小写</li>
+<li>c，每个替换都需要确认</li>
+</ul>
+<p>count表示替换的个数，可选</p>
+<h2>基本编辑</h2>
+<ul>
+<li>d: delete, 删除</li>
+<li>c: change, 修改</li>
+<li>y: yank, 复制
+d,c,y均可以配合各种移动命令使用</li>
+</ul>
+<h2>粘贴</h2>
+<ul>
+<li>p: paste, 粘贴到光标后</li>
+<li>P: 粘贴到光标前
+如果复制的是行, 则p会将内容粘贴到当前行后面, P则是前面</li>
+</ul>
+<h2>删除字符</h2>
+<ul>
+<li>x: 删除光标所在字符,相当于delete键</li>
+<li>X: 删除光标前字符,相当于Backspace键</li>
+</ul>
+<h2>替换字符</h2>
+<ul>
+<li>r<x>: 将光标所在字符替换为<x></li>
+<li>R: 进入Replace模式,输入的字符将会覆盖当前字符</li>
+</ul>
+<h2>切换大小写</h2>
+<ul>
+<li>~: 切换光标所在字符的大小写</li>
+</ul>
+<h2>d命令</h2>
+<ul>
+<li>dd: 删除当前行,并复制到剪切板</li>
+<li>D: 删除光标当前位置到行尾的全部内容</li>
+</ul>
+<h2>撤销和重做</h2>
+<ul>
+<li>u: undo, 撤销</li>
+<li>.: 重做</li>
+<li>ctrl+r: 重做</li>
+</ul>
+<h2>匹配命令%</h2>
+<ul>
+<li>%<x>: 移动到与x匹配的符号, 例如括号,引号等.</li>
+</ul>
+<p>假如你想匹配左括号对应的右括号, 你不需要将光标移动到左括号上, vim 会自动向后查找到第一个左括号, 并继续移动到对应的右括号. 这在修改代码时非常有用.
+假如你有如下的代码:</p>
+<pre><code>x = foo(x,y,z) &amp;&amp; bar(a,b,c,d)
+</code></pre>
+<p>你的光标在foo的f上. 现在, 你想把 foo(x,y,z) 这部分复制或者删除, 你只需要:</p>
+<pre><code>y%(
+</code></pre>
+<p>或者</p>
+<pre><code>d%(
+</code></pre>
+<h2>文本对象(text object)</h2>
+<p>假如你有如下的代码:</p>
+<pre><code>foo(x,y,z)
+</code></pre>
+<p>你想将括号内的参数列表复制出来, 只需要将光标移动到括号内任意位置,然后:</p>
+<pre><code>yi(
+</code></pre>
+<p>此时, <code>x,y,z</code> 已经在你的剪切板里了.
+如果你想连同括号一起复制, 只需要:</p>
+<pre><code>ya(
+</code></pre>
+<p>这里, 整个括号内的文本被当作一个text object. 
+i即inner, 表示操作对象内部的文本
+a即all, 表示操作整个对象的文本
+它们也可以结合d,c等命令使用, 操作对象可以是任意括号,引号包围的对象.</p>
+<h2>增减光标处的数字</h2>
+<ul>
+<li>ctrl+a: increase</li>
+<li>ctrl+x: decrease
+如果你的光标停在6上面, ctrl+a会把它变成7, ctrl+x则得到5
+如果你的数字是36, 且无论你的光标在3或6上面, vim 也能通过上述命令将它智能的变成35或37</li>
+</ul>
+
+            </div>
+
+            <div>
+                
+            </div>
+        
+</section>
+    </div>
+</body>
+</html>

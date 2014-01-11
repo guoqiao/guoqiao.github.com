@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Hello, GitHub! by guoqiao</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/stylesheets/ie.css">
+    <![endif]-->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+</head>
+<body>
+    <div id="header">
+        <nav>
+          <li class="fork"><a href="/index.html">Home</a></li>
+          <li class="fork"><a href="/archives.html">Archives</a></li>
+          <li class="fork"><a href="https://github.com/guoqiao">Fork me on GitHub</a></li>
+        </nav>
+    </div>
+
+    <div class="wrapper">
+<section>
+        
+            <div>
+                
+    <h2>os-x-vim-clipboard-not-work
+</h2>
+    <p>2014-01-10</p>
+
+            </div>
+
+            <div>
+                
+    <h1>OS X 下 vim 无法复制到系统剪切板的问题</h1>
+<h2>问题背景</h2>
+<p>我的电脑是2013年的Macbook Air, 香港购买后, 升级到 Marvricks 10.9.1
+我尝试将 vim 中选中的内容复制到系统剪切板, 始终不成功. 包括:</p>
+<ul>
+<li>使用寄存器 + 以及 * 来复制内容: <code>"+y</code></li>
+<li>在 vimrc 中设置 <code>set clipboard=unnamed</code></li>
+</ul>
+<p>这个问题困扰了我好久,各种尝试未果. 
+在 <a href="http://www.v2ex.com/t/96300">v2ex</a>  提了一个问题, 经过大家的讨论, 理清了问题, 并最终解决.</p>
+<h2>问题原因</h2>
+<p>我的系统里其实有三个 vim:</p>
+<ol>
+<li>系统自带的, 可执行程序是 <code>/usr/bin/vim</code>, 安装目录是 <code>/usr/share/vim/</code>, 版本7.3. </li>
+<li>我使用 homebrew 后顺手安装了一次 vim, 安装目录:<code>/usr/local/Cellar/vim/</code>, 版本7.4. 可执行程序是 /usr/local/Cellar/vim/7.4.052/bin/vim , 并且有一个指向它的链接:
+<code>/usr/local/bin/vim -&gt; ../Cellar/vim/7.4.052/bin/vim</code></li>
+<li>为了解决剪切板的问题, 我安装了 macvim. 这样还会有一份 vim: 
+<code>/Applications/MacVim.app/Contents/MacOS/Vim</code>, 版本7.4</li>
+</ol>
+<p>执行 <code>which vim</code> 的结果:</p>
+<p>/usr/bin/vim</p>
+<p>可见, 尽管我用 homebrew 以及 macvim 安装了新的 vim 7.4, 但是系统默认使用的还是自带的7.3的老版本.
+而执行 <code>/usr/bin/vim --version | grep clipboard</code> 又发现, 这个版本不支持 clipboard. 这就是问题的根本原因.</p>
+<h2>解决方案</h2>
+<p>我将 /usr/bin/vim 给重命名了一下, 此时再 which vim, 就指向 /usr/local/bin/vim 了, 问题也解决了.</p>
+
+            </div>
+
+            <div>
+                
+            </div>
+        
+</section>
+    </div>
+</body>
+</html>
