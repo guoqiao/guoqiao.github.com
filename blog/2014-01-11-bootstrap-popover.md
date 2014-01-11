@@ -1,6 +1,8 @@
 how to use bootstrap popover
 2014-1-11
 
+# bootstrap-popover 之菜鸟使用
+
 ## 基本使用
 
 我使用的是 Bootstrap 2.3.2, 这个版本里, bootstrap-tooltip.js 以及 bootstrap-popover.js 已经都编译到 bootstrap.js 单个文件中, 不需要再单独加载.
